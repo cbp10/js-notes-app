@@ -1,11 +1,19 @@
 (function(exports) {
   function NoteListView(noteList) {
     this.list = noteList.list
+    this.html = []
   }
 
   NoteListView.prototype.getHTML = function() {
-
-    return "<ul><li><div>Favourite food: pesto</div></li><li><div>Favourite drink: seltzer</div></li></ul>"
+    array = this.html
+    array.push("<ul>")
+    this.list.forEach(function(note) {
+      array.push("<li><div>")
+      array.push(note.getNoteText())
+      array.push("</div></li>")
+    })
+    array.push("</ul>")
+    return array.join('')
   }
 
   exports.NoteListView = NoteListView;

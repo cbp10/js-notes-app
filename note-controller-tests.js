@@ -11,6 +11,12 @@
       this.list = [new noteDouble()];
     }
 
+    var addNoteCounter = 0
+
+    noteListDouble.prototype.addNote = function() {
+      addNoteCounter++
+    }
+
     function noteListViewDouble() {}
 
     noteListViewDouble.prototype.getHTML = function() {
@@ -38,12 +44,23 @@
   function testCreateView() {
 
     if (controller.createView(noteListViewDouble) === "<ul><li><div>Some text</div></li><ul>") {
-      console.log("Test passed!") 
+      console.log("Test passed!"); 
     } else {
       throw new Error("Generated HTML doesn't match.");
     }
     
   }
   testCreateView();
+
+  function testAddNote() {
+    controller.addNote("text")
+    if ( addNoteCounter === 1 ) {
+      console.log("Test passed!"); 
+    } else {
+      throw new Error("note not added");
+    }
+
+  }
+  testAddNote();
 })();
 

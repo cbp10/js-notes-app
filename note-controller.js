@@ -13,6 +13,10 @@
     return htmlString;
   }
 
+  NoteController.prototype.addNote = function(text) {
+    this.noteListModel.addNote(text);
+  }
+
 
   exports.NoteController = NoteController;
 })(this);

@@ -7,6 +7,7 @@
   NoteListView.prototype.getHTML = function() {
     array = this.html
     array.push("<ul>")
+    console.log(this.list);
     this.list.forEach(function(note) {
       array.push("<li><div>")
       array.push(note.getNoteText())

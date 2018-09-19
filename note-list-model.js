@@ -10,7 +10,6 @@
   NoteList.prototype.addNote = function(text) {
     note = new Note(text)
     this.list.push(note)
-
   }
 
   exports.NoteList = NoteList;

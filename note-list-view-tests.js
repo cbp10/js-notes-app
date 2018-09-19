@@ -6,7 +6,7 @@
     noteListView = new NoteListView(noteList);
 
 
-    htmlText = "<ul><li><div>Favourite food: pesto</div></li><li><div>Favourite drink: seltzer</div></li></ul>"
+    htmlText = "<ul><li><div>Favourite food: pes...</div></li><li><div>Favourite drink: se...</div></li></ul>"
     if (noteListView.getHTML() !== htmlText) {
       throw new Error("html not right")
     } 

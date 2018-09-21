@@ -10,7 +10,7 @@
     return this.text
   }
 
-  Note.prototype.getNoteTextId = function() {
+  Note.prototype.getNoteId = function() {
     return this.id
   }
   

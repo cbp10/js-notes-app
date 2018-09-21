@@ -23,8 +23,14 @@
       return "<ul><li><div>Some text</div></li><ul>";
     }
 
-    function Element() {
+    function MockElement() {
       this.innerHTML = "Hello";
+    }
+
+    function DocumentMock() {}
+
+    DocumentMock.prototype.getElementByID = function(id) {
+      return new MockElement
     }
 
     // NEW INSTANCE OF MODEL TO BE TESTED

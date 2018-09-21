@@ -3,8 +3,8 @@
     this.noteListModel = noteList;
   }
 
-  NoteController.prototype.createView = function(view) {
-    var noteListView = new view(this.noteListModel);
+  NoteController.prototype.createView = function(NoteListView) {
+    var noteListView = new NoteListView(this.noteListModel);
 
     htmlString = noteListView.getHTML();
 

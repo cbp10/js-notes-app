@@ -43,5 +43,13 @@
     return parseInt(location.hash.split("#")[1].split("/")[1])
   };
 
+  NoteController.prototype.setSubmitEvent = function() {
+    var text = document.getElementById("text")
+    text.addEventListener("submit", function(event) {
+      event.preventDefault()
+      console.log(event.target[0].value)
+    })
+  }
+
   exports.NoteController = NoteController;
 })(this);

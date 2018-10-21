@@ -54,6 +54,5 @@
     this.createView(NoteListView)
   }
 
-
   exports.NoteController = NoteController;
 })(this);

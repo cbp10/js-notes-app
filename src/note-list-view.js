@@ -16,7 +16,7 @@
       noteArray.push(string)
     })
 
-    return '<ul><li><a href="#notes/' + noteArray.join('</li><li><a href="#notes/>') + "</a></li></ul>"
+    return '<ul><li><a href="#notes/' + noteArray.join('</li><li><a href="#notes/') + "</a></li></ul>"
   }
 
 

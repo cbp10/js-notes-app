@@ -1,20 +1,18 @@
 (function(exports) {
   function testSingleNoteView() {
-    function DoubleNoteModel() {}
+    function NoteModelDouble() {}
 
-    DoubleNoteModel.prototype.getNoteText = function() {
+    NoteModelDouble.prototype.getNoteText = function() {
       return "hellooo i'm a notetext"
     }
 
-    var doubleNoteModel = new DoubleNoteModel()
-    var singleNoteView = new SingleNoteView(doubleNoteModel)
+    var noteModelDouble = new NoteModelDouble()
+    var singleNoteView = new SingleNoteView(noteModelDouble)
 
     console.log("note view test " + singleNoteView.htmlize())
-    if(singleNoteView.htmlize() === "<div>hellooo i'm a notetext</div>") {
-      console.log("note htmlized");  
-    } else {
-      throw new Error("this is not working!")
-    }
+
+    assert.isEqual(singleNoteView.htmlize(), "<div>hellooo i'm a notetext</div>", "Single Note View Spec: should return html string")
   }
   testSingleNoteView()
+
 })(this)

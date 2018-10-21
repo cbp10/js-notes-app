@@ -17,7 +17,14 @@
     this.noteListModel.addNote(text);
   }
 
+  NoteController.prototype.displaySingleNote = function(id) {
+    var notesArray = this.noteListModel.list
+    for(var note of notesArray) {
+      if (note.getNoteId() === id) {
+        return note.getNoteText()
+      } else throw "Note not found"
+    }
+  };
 
   exports.NoteController = NoteController;
 })(this);
-

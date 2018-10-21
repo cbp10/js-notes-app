@@ -56,15 +56,24 @@
 
 
   function testShowSingleNoteForCurrentPage() {
+    assert.isEqual(controller.getSingleNote(1), 'Some text', "Note Controller Spec: should return single note text")
+  }
 
-    text = document.getElementById('app').innerHTML
+  testShowSingleNoteForCurrentPage();
 
-    document.getElementById('1').click
-    assert.isEqual(controller.displaySingleNote(1), 'Some text', "Note Controller Spec: should return single note text")
+
+  function testSetEventListener() {
+
+    var text = document.getElementById('app').innerText
+
+    controller.setEventListener()
+    document.getElementById('1').click()
+    assert.isEqual(text, "Some text", "Note Controller Spec: listens for hashchange to display single note")
 
   }
 
-testShowSingleNoteForCurrentPage()
+  testSetEventListener();
+
 
 
 

@@ -22,7 +22,7 @@
 
 
   function testNoteListView() {
-    var htmlText = '<ul><li><a href="#notes/1">Favourite food: pes...</a></li></ul>'
+    var htmlText = '<ul><li><a href="#notes/1" id="1">Favourite food: pes...</a></li></ul>'
 
     assert.isEqual(noteListView.getHTML(), htmlText, "Note List View Spec: should return html for list view")
 

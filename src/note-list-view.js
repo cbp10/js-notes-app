@@ -9,9 +9,9 @@
     this.list.forEach(function(note) {
       var text = note.getNoteText()
       var id = note.getNoteId()
-      var string = id + '">' + text
+      var string = id + `" id="${id}">` + text
       if (text.length > 20) {
-        string = id + '">' + text.slice(0, 19) + "..."
+        string = id + `" id="${id}">` + text.slice(0, 19) + "..."
       }
       noteArray.push(string)
     })

@@ -1,47 +1,47 @@
 (function() {
 
-    function noteDouble() {}
+  function noteDouble() {}
 
-    noteDouble.prototype.getNoteText = function() {
-      return "Some text";
-    };
+  noteDouble.prototype.getNoteText = function() {
+    return "Some text";
+  };
 
-    noteDouble.prototype.getNoteId = function() {
-      return 1;
-    };
+  noteDouble.prototype.getNoteId = function() {
+    return 1;
+  };
 
-    function noteListDouble() {
-      this.list = [new noteDouble()];
-    };
+  function noteListDouble() {
+    this.list = [new noteDouble()];
+  };
 
-    var addNoteCounter = 0
+  var addNoteCounter = 0
 
-    noteListDouble.prototype.addNote = function() {
-      addNoteCounter++
-    };
+  noteListDouble.prototype.addNote = function() {
+    addNoteCounter++
+  };
 
-    function noteListViewDouble() {}
+  function noteListViewDouble() {}
 
-    noteListViewDouble.prototype.getHTML = function() {
-      return '<ul><li><a href="#notes/1" id="1">Some text</a></li></ul>';
-    };
+  noteListViewDouble.prototype.getHTML = function() {
+    return '<ul><li><a href="#notes/1" id="1">Some text</a></li></ul>';
+  };
 
-    function MockElement() {
-      this.innerHTML = "Hello";
-    };
+  function MockElement() {
+    this.innerHTML = "Hello";
+  };
 
-    function MockDocument() {}
+  function MockDocument() {}
 
-    MockDocument.prototype.getElementByID = function(id) {
-      return new MockElement
-    };
+  MockDocument.prototype.getElementByID = function(id) {
+    return new MockElement
+  };
 
-    var controller = new NoteController(new noteListDouble());
+  var controller = new NoteController(new noteListDouble());
 
-    function testInstantiateNoteController() {
-      assert.isEqual(controller.constructor.name, "NoteController", "Note Controller Spec: instantiates a note controller")
-     }
-     testInstantiateNoteController();
+  function testInstantiateNoteController() {
+    assert.isEqual(controller.constructor.name, "NoteController", "Note Controller Spec: instantiates a note controller")
+   }
+   testInstantiateNoteController();
 
   function testCreateView() {
     assert.isEqual(controller.createView(noteListViewDouble), '<ul><li><a href="#notes/1" id="1">Some text</a></li></ul>', "Note Controller Spec: should return html string")
@@ -74,9 +74,20 @@
 
   testSetEventListener();
 
+  function testSetSubmitEvent() {
+    var note = document.getElementById("note")
+    var text = document.getElementById("text")
+    var html = document.getElementById("app").innerHTML
 
+    note.value = "Some text"
+    controller.setSubmitEvent()
+    text['submit'].click()
 
+    assert.isEqual(html, '<ul><li><a href="#notes/1" id="1">Some text</a></li></ul>', "Note Controller Spec: should return html string of new note submitted by form")
 
+  }
+
+  testSetSubmitEvent()
 
 
 })();

@@ -45,11 +45,15 @@
 
   NoteController.prototype.setSubmitEvent = function() {
     var text = document.getElementById("text")
-    text.addEventListener("submit", function(event) {
-      event.preventDefault()
-      console.log(event.target[0].value)
-    })
+    text.addEventListener("submit", this.submitEvent.bind(this))
   }
+
+  NoteController.prototype.submitEvent = function(e) {
+    e.preventDefault()
+    this.addNote(e.target[0].value)
+    this.createView(NoteListView)
+  }
+
 
   exports.NoteController = NoteController;
 })(this);

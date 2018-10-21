@@ -7,6 +7,10 @@
 <body>
 <div id="app">hello</div>
 
+  <form id="text" action="#notes/:id" method="post">
+    <textarea id="note" rows="8" cols="80"></textarea>
+    <input type="submit" name="submit" value="Submit">
+  </form>
   <script type="text/javascript" src="src/note-model.js"></script>
   <script type="text/javascript" src="src/single-note-view.js"></script>
   <script type="text/javascript" src="src/note-list-model.js"></script>
@@ -23,9 +27,11 @@
 <script>
   noteList = new NoteList
   controller = new NoteController(noteList)
-  controller.addNote("note 1")
-  controller.addNote("note 2")
+  // controller.addNote("note 1")
+  // controller.addNote("note 2")
   controller.createView(NoteListView)
+  controller.setEventListener()
+  controller.setSubmitEvent()
 </script>
 
 </body>

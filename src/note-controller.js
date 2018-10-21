@@ -22,8 +22,9 @@
     for(var note of notesArray) {
       if (note.getNoteId() === id) {
         return note.getNoteText()
-      } else throw "Note not found"
+      }
     }
+    throw "Note not found"
   };
 
   NoteController.prototype.setEventListener = function() {
